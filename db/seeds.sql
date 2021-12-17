@@ -10,7 +10,7 @@ VALUES ("Benefits Trainer", 50000, 1),
        ("Software Engineer", 100000, 3),
        ("CSA", 40000, 4);
 
-INSERT INTO employee_info (first_name, last_name,role_id)
+INSERT INTO employee_info (first_name, last_name,  role_id)
 VALUES ("Liz","Test", 1),
        ("Kari", "Testing", 2),
        ("Mari", "Testa",  3),
