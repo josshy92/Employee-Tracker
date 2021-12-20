@@ -10,9 +10,9 @@ CREATE TABLE department (
 
 CREATE TABLE employee_role (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    department_id INT,
     title VARCHAR(30) NOT NULL,
     salary INT NOT NULL,
+    department_id INT,
     FOREIGN KEY (department_id)
     REFERENCES department(id)
     ON DELETE SET NULL
