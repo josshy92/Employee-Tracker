@@ -1,9 +1,10 @@
+//make variables for apps
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 
 
-
+//connect to database
 const db = mysql.createConnection(
     {
         host: 'localhost',
@@ -15,7 +16,7 @@ const db = mysql.createConnection(
 );
 
 
-
+//start asking questions
 const stateAction = () => {
     inquirer.prompt([
         {
@@ -51,12 +52,7 @@ const stateAction = () => {
     })
 }
 
-// const employeesInfo = () => {
-//     db.query("SELECT * FROM employee_info  employee_role.title, employee_role.salary LEFT JOIN employee_role ON employee_info ", function (err, result, fields) {
-//         console.table(result);
-//         stateAction();
-//     });
-// }
+// start specific scenarios
 const employeesInfo = () => {
     db.query("SELECT  employee_info.id, employee_info.first_name, employee_info.last_name, employee_role.title, employee_role.salary, department.department_name, employee_info.manager_id FROM employee_info LEFT JOIN employee_role ON employee_info.role_id=employee_role.id LEFT JOIN department ON employee_role.department_id=department.id", function (err, result, fields) {
         console.table(result);
@@ -221,5 +217,5 @@ function addDepartment() {
         })
 }
 
-
+// invoke function
 stateAction();
