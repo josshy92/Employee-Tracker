@@ -137,16 +137,9 @@ function updateEmployeeRole() {
             {
                 name: 'newRole',
                 type: 'input',
-                message: 'What is the ID number of the new roll this employee will belong to?',
-                validate: (answer) => {
-                    if (isNaN(answer)) {
-                        return `You did not enter a valid number`
-                    } else if (answer === "") {
-                        return `Please enter your role id number`
-                    }
-                    return true;
-                }
+                message: 'What is the name of the new roll this employee will belong to?',
             }
+
         ]).then(res => {
             db.query('UPDATE employee_role SET ? WHERE ?;',
                 [
@@ -186,8 +179,7 @@ function addRole() {
             },
             {
                 name: 'deptId',
-                type: 'list',
-                choices: ["1) Human Resources", "2) Sales", "3) IT", "4) Customer Service"],
+                type: 'input',
                 message: 'What department ID number will this role belong to?',
                 validate: (answer) => {
                     if (isNaN(answer)) {
